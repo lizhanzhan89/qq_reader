@@ -1,0 +1,142 @@
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem !important;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-link {
+    font-weight: 500;
+    border: none !important;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 8px 8px 0 0 !important;
+    color: #2c3e50 !important;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+    --bs-table-bg: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th {
+    background: linear-gradient(160deg, #f8f9fa, #e9ecef);
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6 !important;
+}
+
+.table td {
+    vertical-align: middle;
+    transition: background 0.2s ease;
+}
+
+.table-hover tbody tr:hover td {
+    background: rgba(248, 249, 250, 0.5) !important;
+}
+
+.star-row {
+    background: rgba(100, 149, 237, 0.12) !important;
+    position: relative;
+}
+
+.btn {
+    border-radius: 8px !important;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: #4a90e2;
+    border-color: #4a90e2;
+}
+
+.btn-primary:hover {
+    background: #357abd;
+    transform: translateY(-1px);
+}
+
+.form-control {
+    border-radius: 8px !important;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.2s ease;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    border-radius: 8px;
+}
+
+.badge.bg-secondary {
+    background: linear-gradient(145deg, #6c757d, #5a6268) !important;
+    padding: 0.5em 0.8em;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .input-group {
+        width: 100% !important;
+        flex-wrap: nowrap;
+    }
+
+    .table-responsive {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-item {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+/* 星号样式 */
+.sub-link {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sub-link.followed {
+    color: gold;
+    /* 黄色实心星号 */
+}
+
+.sub-link.unfollowed {
+    color: gray;
+    /* 灰色空心星号 */
+}

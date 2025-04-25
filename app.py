@@ -1,18 +1,28 @@
-from flask import Flask, jsonify, send_from_directory, request
+from flask import Flask, jsonify, render_template, request
 import json
 import qq_reader_crawler
+from apscheduler.schedulers.background import BackgroundScheduler
+import time
 
 # 创建 Flask 应用实例
 app = Flask(__name__)
 
-JSON_FILE_PATH = 'current_books.json'
-INFO_FILE = 'info.json'
-NOTIFICATION_HISTORY_FILE = 'notification_history.log'
+JSON_FILE_PATH = 'data/current_books.json'
+INFO_FILE = 'data/info.json'
+NOTIFICATION_HISTORY_FILE = 'data/notification_history.log'
+
+def my_scheduled_job():
+    qq_reader_crawler.main()
+    print("定时任务执行:", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(my_scheduled_job, 'interval', hours=1)
+scheduler.start()
 
 
 @app.route('/')
-def serve_html():
-    return send_from_directory('static', 'index.html')
+def index():
+    return render_template('index.html')
 
 
 # 重新加载数据
@@ -44,6 +54,7 @@ def get_data():
     except json.JSONDecodeError:
         # 如果 JSON 格式错误，返回错误信息，状态码 400
         return jsonify({"error": "Invalid JSON format"}), 400
+
 
 @app.route('/api/author', methods=['DELETE'])
 def delete_authro():
@@ -94,4 +105,4 @@ def sub_book():
 
 # 运行 Flask 应用
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=False, port=5001)

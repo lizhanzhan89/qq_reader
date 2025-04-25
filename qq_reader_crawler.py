@@ -1,14 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import itchat
 from pathlib import Path
 import datetime
 
 # 文件路径
-INFO_FILE = 'info.json'
-CURRENT_FILE = 'current_books.json'
-PREVIOUS_FILE = 'previous_books.json'
+INFO_FILE = 'data/info.json'
+CURRENT_FILE = 'data/current_books.json'
+PREVIOUS_FILE = 'data/previous_books.json'
 
 
 # 解析字数字符串
@@ -69,13 +68,11 @@ def save_data(json_data, filename):
 
 # 发送微信通知
 def send_notification(message):
-    """通过微信发送通知，并保存到日志文件"""
     try:
-        # itchat.send(message, toUserName='filehelper')
-        # TODO
+        # TODO 通过微信发送通知
         print(message)
         # 保存到日志文件
-        with open('notification_history.log', 'a', encoding='utf-8') as log_file:
+        with open('data/notification_history.log', 'a', encoding='utf-8') as log_file:
             log_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             log_file.write(f"{log_time} {message}\n")
     except Exception as e:
@@ -166,14 +163,4 @@ def mix_follow(info, books):
 
 
 def main():
-    # itchat.auto_login(hotReload=True)  # 登录微信，支持热重载
-
     books = main_crawl()
-
-    # itchat.logout()
-
-
-if __name__ == '__main__':
-    itchat.auto_login(hotReload=True)  # 登录微信，支持热重载
-    itchat.send("hello", toUserName='filehelper')
-    itchat.logout()
