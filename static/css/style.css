@@ -126,17 +126,17 @@ h1 {
 }
 
 /* 星号样式 */
-.sub-link {
+.follow-link {
     text-decoration: none;
     font-size: 18px;
 }
 
-.sub-link.followed {
+.follow-link.followed {
     color: gold;
     /* 黄色实心星号 */
 }
 
-.sub-link.unfollowed {
+.follow-link.unfollowed {
     color: gray;
     /* 灰色空心星号 */
 }

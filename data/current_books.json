@@ -1,11 +1,20 @@
 [
     {
+        "title": "年代：从跟女大学生离婚开始",
+        "author": "喵力求食",
+        "type": "都市/都市生活",
+        "word_count": 2900000,
+        "url": "//book.qq.com/book-detail/50256553",
+        "last_update_date": "2025-04-25 00:00:00",
+        "is_follow": true
+    },
+    {
         "title": "穿成始皇亲妈后，每天种地养崽",
         "author": "红油干拌饺子",
         "type": "穿越",
         "word_count": 127000,
         "url": "//book.qq.com/book-detail/54123654",
-        "is_follow": true,
+        "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
@@ -14,7 +23,7 @@
         "type": "未来",
         "word_count": 124000,
         "url": "//book.qq.com/book-detail/54136131",
-        "is_follow": true,
+        "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
@@ -23,7 +32,7 @@
         "type": "都市",
         "word_count": 123000,
         "url": "//book.qq.com/book-detail/54139187",
-        "is_follow": true,
+        "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
@@ -32,7 +41,7 @@
         "type": "异能",
         "word_count": 119000,
         "url": "//book.qq.com/book-detail/54144038",
-        "is_follow": true,
+        "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
@@ -45,13 +54,22 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "我在修仙界种田飞升",
+        "author": "忘忧的猫",
+        "type": "修仙",
+        "word_count": 119000,
+        "url": "//book.qq.com/book-detail/54046157",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 21:51:25"
+    },
+    {
         "title": "在废土当幼崽园园长，被雄竞了？",
         "author": "八克油",
-        "type": "末世",
+        "type": "科幻空间/末世危机",
         "word_count": 119000,
         "url": "//book.qq.com/book-detail/54124269",
-        "is_follow": true,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 11:10:36",
+        "is_follow": true
     },
     {
         "title": "重生拒当白月光，清冷首辅争红眼",
@@ -61,6 +79,15 @@
         "url": "//book.qq.com/book-detail/54110155",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "华妃连夜屠龙",
+        "author": "致富致富我要富",
+        "type": "宫斗",
+        "word_count": 118000,
+        "url": "//book.qq.com/book-detail/54139011",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 20:09:44"
     },
     {
         "title": "交换兽夫后，疯批S级争着求我宠",
@@ -81,38 +108,20 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "小雌性妖娆妩媚，众兽夫失控沦陷",
+        "author": "梦思年华",
+        "type": "异世",
+        "word_count": 117000,
+        "url": "//book.qq.com/book-detail/54090809",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
+    },
+    {
         "title": "七零：捡来的军官非要宠我怎么办",
         "author": "九尘木",
         "type": "婚恋",
         "word_count": 115000,
         "url": "//book.qq.com/book-detail/54144674",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "我在修仙界种田飞升",
-        "author": "忘忧的猫",
-        "type": "修仙",
-        "word_count": 115000,
-        "url": "//book.qq.com/book-detail/54046157",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "小雌性妖娆妩媚，众兽夫失控沦陷",
-        "author": "梦思年华",
-        "type": "异世",
-        "word_count": 114000,
-        "url": "//book.qq.com/book-detail/54090809",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "华妃连夜屠龙",
-        "author": "致富致富我要富",
-        "type": "宫斗",
-        "word_count": 114000,
-        "url": "//book.qq.com/book-detail/54139011",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -153,6 +162,15 @@
         "last_update_date": "2025-04-25 14:09:52"
     },
     {
+        "title": "末世女子穿古代，全府排队宠不停",
+        "author": "房顶的风",
+        "type": "宫斗",
+        "word_count": 109000,
+        "url": "//book.qq.com/book-detail/54188589",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 21:51:25"
+    },
+    {
         "title": "旧婚燕尔",
         "author": "贪睡DD",
         "type": "豪门",
@@ -162,22 +180,22 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "末世女子穿古代，全府排队宠不停",
-        "author": "房顶的风",
-        "type": "宫斗",
-        "word_count": 107000,
-        "url": "//book.qq.com/book-detail/54188589",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "在仙界卖刮刮乐，假千金逆天改命",
         "author": "言潇和",
         "type": "修仙",
-        "word_count": 105000,
+        "word_count": 107000,
         "url": "//book.qq.com/book-detail/53076911",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 21:51:25"
+    },
+    {
+        "title": "恶毒女修不装了，开局五个道侣",
+        "author": "抓星星的羊",
+        "type": "玄幻",
+        "word_count": 106000,
+        "url": "//book.qq.com/book-detail/54144536",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 20:09:44"
     },
     {
         "title": "重生九零，冷面警官宠不停",
@@ -189,6 +207,15 @@
         "last_update_date": "2025-04-25 14:09:52"
     },
     {
+        "title": "开局兽夫变萌崽，修罗场极限求生",
+        "author": "杉与",
+        "type": "末世",
+        "word_count": 105000,
+        "url": "//book.qq.com/book-detail/54152976",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 19:09:44"
+    },
+    {
         "title": "穿成农家长姐，开局养全家",
         "author": "金橘团",
         "type": "种田",
@@ -198,22 +225,13 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "开局兽夫变萌崽，修罗场极限求生",
-        "author": "杉与",
-        "type": "末世",
+        "title": "七零随军大西北，娇软恶妻被偏宠",
+        "author": "月半晚",
+        "type": "婚恋",
         "word_count": 103000,
-        "url": "//book.qq.com/book-detail/54152976",
+        "url": "//book.qq.com/book-detail/54221558",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "恶毒女修不装了，开局五个道侣",
-        "author": "抓星星的羊",
-        "type": "玄幻",
-        "word_count": 102000,
-        "url": "//book.qq.com/book-detail/54144536",
-        "is_follow": false,
-        "last_update_date": "2025-04-24 12:49:44"
+        "last_update_date": "2025-04-25 18:12:33"
     },
     {
         "title": "恶雌娇又软，疯批兽夫们假戏真做",
@@ -234,15 +252,6 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "七零随军大西北，娇软恶妻被偏宠",
-        "author": "月半晚",
-        "type": "婚恋",
-        "word_count": 101000,
-        "url": "//book.qq.com/book-detail/54221558",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 15:09:52"
-    },
-    {
         "title": "我都恶毒嫡姐了，抢女主剧本咋啦",
         "author": "随许",
         "type": "宫斗",
@@ -250,6 +259,15 @@
         "url": "//book.qq.com/book-detail/54102056",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "斗罗：抢机缘，我是专业的",
+        "author": "墨雨揽月",
+        "type": "同人",
+        "word_count": 101000,
+        "url": "//book.qq.com/book-detail/54190813",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 19:09:44"
     },
     {
         "title": "暴君的巫蛊娃娃她活了",
@@ -279,15 +297,6 @@
         "last_update_date": "2025-04-24 10:39:31"
     },
     {
-        "title": "斗罗：抢机缘，我是专业的",
-        "author": "墨雨揽月",
-        "type": "同人",
-        "word_count": 98000,
-        "url": "//book.qq.com/book-detail/54190813",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "绝美稀雌娇又软，四个兽夫强制爱",
         "author": "桃叽奶泡",
         "type": "异世",
@@ -315,6 +324,15 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "炮灰兔兔又娇又软，兽夫们争顺毛",
+        "author": "麻辣白骨精",
+        "type": "洪荒",
+        "word_count": 95000,
+        "url": "//book.qq.com/book-detail/54146726",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:12:33"
+    },
+    {
         "title": "极寒兽世绑定系统，兽夫们真香了",
         "author": "社恐小行星",
         "type": "异族",
@@ -333,6 +351,15 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "斗罗：抢小三机缘会上瘾诶",
+        "author": "子叶同学",
+        "type": "同人",
+        "word_count": 93000,
+        "url": "//book.qq.com/book-detail/54193364",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 20:40:01"
+    },
+    {
         "title": "天降好孕娇软雌性，九个兽夫宠疯",
         "author": "小财迷呀",
         "type": "异族",
@@ -340,6 +367,15 @@
         "url": "//book.qq.com/book-detail/54231827",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "纪先生，有空领个证",
+        "author": "七夏叶",
+        "type": "婚恋",
+        "word_count": 92000,
+        "url": "//book.qq.com/book-detail/54152878",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
     },
     {
         "title": "夹缝偷欢？兄弟修罗场她翻车了",
@@ -358,6 +394,15 @@
         "url": "//book.qq.com/book-detail/54192422",
         "is_follow": false,
         "last_update_date": "2025-04-25 15:09:52"
+    },
+    {
+        "title": "直播间通兽世，五个兽夫争榜一",
+        "author": "狐小啾",
+        "type": "星际",
+        "word_count": 91000,
+        "url": "//book.qq.com/book-detail/54057474",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 19:09:44"
     },
     {
         "title": "听懂兽语后，我在九零暴富了",
@@ -387,33 +432,6 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "斗罗：抢小三机缘会上瘾诶",
-        "author": "子叶同学",
-        "type": "同人",
-        "word_count": 90000,
-        "url": "//book.qq.com/book-detail/54193364",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "纪先生，有空领个证",
-        "author": "七夏叶",
-        "type": "婚恋",
-        "word_count": 90000,
-        "url": "//book.qq.com/book-detail/54152878",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 14:09:52"
-    },
-    {
-        "title": "炮灰兔兔又娇又软，兽夫们争顺毛",
-        "author": "麻辣白骨精",
-        "type": "洪荒",
-        "word_count": 90000,
-        "url": "//book.qq.com/book-detail/54146726",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "都穿书了谁还种田",
         "author": "天麻虫草花",
         "type": "种田",
@@ -421,6 +439,15 @@
         "url": "//book.qq.com/book-detail/54114174",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "神豪主播万人迷，大佬全是我的鱼",
+        "author": "无意花落",
+        "type": "明星",
+        "word_count": 90000,
+        "url": "//book.qq.com/book-detail/54185547",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
     },
     {
         "title": "渣男太子，你家库房已被我搬空",
@@ -450,13 +477,13 @@
         "last_update_date": "2025-04-25 12:09:52"
     },
     {
-        "title": "直播间通兽世，五个兽夫争榜一",
-        "author": "狐小啾",
-        "type": "星际",
+        "title": "知青腰软撩人，三天被糙汉宠成宝",
+        "author": "萧七安",
+        "type": "都市",
         "word_count": 87000,
-        "url": "//book.qq.com/book-detail/54057474",
+        "url": "//book.qq.com/book-detail/54147571",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 20:50:00"
     },
     {
         "title": "亲姐重生后，炮灰弟弟们强势争宠",
@@ -468,6 +495,15 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "京夜欲缠欢",
+        "author": "若初宁",
+        "type": "豪门",
+        "word_count": 86000,
+        "url": "//book.qq.com/book-detail/54190789",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 21:51:25"
+    },
+    {
         "title": "娇软恶雌要洗白，兽夫跪着求我宠",
         "author": "岫禾",
         "type": "星际",
@@ -477,13 +513,13 @@
         "last_update_date": "2025-04-25 14:09:52"
     },
     {
-        "title": "神豪主播万人迷，大佬全是我的鱼",
-        "author": "无意花落",
-        "type": "明星",
-        "word_count": 85000,
-        "url": "//book.qq.com/book-detail/54185547",
+        "title": "御兽从旅行青蛙开始",
+        "author": "上山采莲蓬",
+        "type": "网恋",
+        "word_count": 86000,
+        "url": "//book.qq.com/book-detail/54122823",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 20:24:25"
     },
     {
         "title": "娇知青断亲后，带空间嫁糙汉致富",
@@ -491,24 +527,6 @@
         "type": "婚恋",
         "word_count": 84000,
         "url": "//book.qq.com/book-detail/54151603",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "御兽从旅行青蛙开始",
-        "author": "上山采莲蓬",
-        "type": "网恋",
-        "word_count": 84000,
-        "url": "//book.qq.com/book-detail/54122823",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "知青腰软撩人，三天被糙汉宠成宝",
-        "author": "萧七安",
-        "type": "都市",
-        "word_count": 83000,
-        "url": "//book.qq.com/book-detail/54147571",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -540,15 +558,6 @@
         "last_update_date": "2025-04-25 12:09:52"
     },
     {
-        "title": "京夜欲缠欢",
-        "author": "若初宁",
-        "type": "豪门",
-        "word_count": 81000,
-        "url": "//book.qq.com/book-detail/54190789",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "白月光替身，四个男主疯狂动心",
         "author": "我还可以去流浪",
         "type": "婚恋",
@@ -556,6 +565,15 @@
         "url": "//book.qq.com/book-detail/54153804",
         "is_follow": false,
         "last_update_date": "2025-04-24 12:49:44"
+    },
+    {
+        "title": "逾期热恋",
+        "author": "余安家的猫",
+        "type": "婚恋",
+        "word_count": 79000,
+        "url": "//book.qq.com/book-detail/53876762",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 21:51:25"
     },
     {
         "title": "原主逃离豪门？我替她花亿万家产",
@@ -581,15 +599,6 @@
         "type": "星际",
         "word_count": 78000,
         "url": "//book.qq.com/book-detail/54291122",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "逾期热恋",
-        "author": "余安家的猫",
-        "type": "婚恋",
-        "word_count": 77000,
-        "url": "//book.qq.com/book-detail/53876762",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -639,6 +648,15 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "穿成极品老妇，拿捏全家暴富了",
+        "author": "舒语m",
+        "type": "种田",
+        "word_count": 74000,
+        "url": "//book.qq.com/book-detail/54225176",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
+    },
+    {
         "title": "末世嘤嘤怪？一拳捶死丧尸王",
         "author": "茶茶以茶茶",
         "type": "末世",
@@ -666,20 +684,20 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "穿成农门长嫂，三个小叔神魂颠倒",
+        "author": "橘橘兔",
+        "type": "架空",
+        "word_count": 72000,
+        "url": "//book.qq.com/book-detail/54289198",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 20:09:44"
+    },
+    {
         "title": "末世有空间，炮灰姐妹杀疯了",
         "author": "奚望",
         "type": "末世",
         "word_count": 72000,
         "url": "//book.qq.com/book-detail/54181098",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 12:09:52"
-    },
-    {
-        "title": "穿成极品老妇，拿捏全家暴富了",
-        "author": "舒语m",
-        "type": "种田",
-        "word_count": 72000,
-        "url": "//book.qq.com/book-detail/54225176",
         "is_follow": false,
         "last_update_date": "2025-04-25 12:09:52"
     },
@@ -691,6 +709,15 @@
         "url": "//book.qq.com/book-detail/54112205",
         "is_follow": false,
         "last_update_date": "2025-04-25 12:09:52"
+    },
+    {
+        "title": "重生和离后，短命王爷追我三千里",
+        "author": "落雪轻轻",
+        "type": "宫斗",
+        "word_count": 71000,
+        "url": "//book.qq.com/book-detail/54204399",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 19:09:44"
     },
     {
         "title": "听百兽进言，我带废太子种田逆袭",
@@ -711,13 +738,22 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "重生和离后，短命王爷追我三千里",
-        "author": "落雪轻轻",
-        "type": "宫斗",
-        "word_count": 70000,
-        "url": "//book.qq.com/book-detail/54204399",
+        "title": "娇气夫妻在七零",
+        "author": "砚清秋",
+        "type": "都市",
+        "word_count": 69000,
+        "url": "//book.qq.com/book-detail/54305640",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 19:09:44"
+    },
+    {
+        "title": "一睁眼，成了古代极品老作精",
+        "author": "马数羊",
+        "type": "种田",
+        "word_count": 69000,
+        "url": "//book.qq.com/book-detail/54101723",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 21:55:34"
     },
     {
         "title": "恶雌野又娇，每天都在修罗场求生",
@@ -725,24 +761,6 @@
         "type": "豪门",
         "word_count": 69000,
         "url": "//book.qq.com/book-detail/54178327",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "穿成农门长嫂，三个小叔神魂颠倒",
-        "author": "橘橘兔",
-        "type": "架空",
-        "word_count": 68000,
-        "url": "//book.qq.com/book-detail/54289198",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "白月光回村种地，大佬带崽来认亲",
-        "author": "青松玫瑰糖",
-        "type": "婚恋",
-        "word_count": 68000,
-        "url": "//book.qq.com/book-detail/54220611",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -774,20 +792,11 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "娇气夫妻在七零",
-        "author": "砚清秋",
-        "type": "都市",
+        "title": "白月光回村种地，大佬带崽来认亲",
+        "author": "青松玫瑰糖",
+        "type": "婚恋",
         "word_count": 67000,
-        "url": "//book.qq.com/book-detail/54305640",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 14:09:52"
-    },
-    {
-        "title": "一睁眼，成了古代极品老作精",
-        "author": "马数羊",
-        "type": "种田",
-        "word_count": 67000,
-        "url": "//book.qq.com/book-detail/54101723",
+        "url": "//book.qq.com/book-detail/54220611",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -799,6 +808,15 @@
         "url": "//book.qq.com/book-detail/54183902",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "斗罗：坐拥武魂殿后，我被迫成神",
+        "author": "阿雅阿姐",
+        "type": "同人",
+        "word_count": 65000,
+        "url": "//book.qq.com/book-detail/54399430",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 16:28:29"
     },
     {
         "title": "万人嫌绝症后，雄竞修罗场炸了",
@@ -846,22 +864,22 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "斗罗：坐拥武魂殿后，我被迫成神",
-        "author": "阿雅阿姐",
-        "type": "同人",
-        "word_count": 59000,
-        "url": "//book.qq.com/book-detail/54399430",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "佞臣他白日冷脸，夜晚爬榻偷亲她",
         "author": "千灵念",
         "type": "架空",
-        "word_count": 59000,
+        "word_count": 63000,
         "url": "//book.qq.com/book-detail/54343372",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 18:02:41"
+    },
+    {
+        "title": "恶雌超凶猛，但被七个兽夫团宠了",
+        "author": "宜闻",
+        "type": "异世",
+        "word_count": 61000,
+        "url": "//book.qq.com/book-detail/54305429",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:12:33"
     },
     {
         "title": "黑女巫是S级哨兵们的白月光圣女",
@@ -873,13 +891,22 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "恶雌超凶猛，但被七个兽夫团宠了",
-        "author": "宜闻",
-        "type": "异世",
+        "title": "她靠捡垃圾带娃，爆火娱乐圈",
+        "author": "麻薯脆团团",
+        "type": "豪门",
         "word_count": 58000,
-        "url": "//book.qq.com/book-detail/54305429",
+        "url": "//book.qq.com/book-detail/54233588",
         "is_follow": false,
-        "last_update_date": "2025-04-25 13:09:53"
+        "last_update_date": "2025-04-25 21:51:25"
+    },
+    {
+        "title": "钓系主播勾勾手，大佬争相当榜一",
+        "author": "茶娇",
+        "type": "明星",
+        "word_count": 57000,
+        "url": "//book.qq.com/book-detail/52929618",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 16:28:29"
     },
     {
         "title": "穿书七零，下乡知青拿捏冷面男神",
@@ -891,6 +918,15 @@
         "last_update_date": "2025-04-25 15:09:52"
     },
     {
+        "title": "拈花问鼎",
+        "author": "凤轻",
+        "type": "穿越",
+        "word_count": 57000,
+        "url": "//book.qq.com/book-detail/54098989",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
+    },
+    {
         "title": "退婚后她改撩小叔，前任们请自重",
         "author": "温润如喻",
         "type": "豪门",
@@ -898,6 +934,15 @@
         "url": "//book.qq.com/book-detail/53210390",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "穿书七零，我靠养崽带全家暴富了",
+        "author": "月满天天",
+        "type": "都市",
+        "word_count": 57000,
+        "url": "//book.qq.com/book-detail/54340624",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 20:40:01"
     },
     {
         "title": "负罪心动",
@@ -918,24 +963,6 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "拈花问鼎",
-        "author": "凤轻",
-        "type": "穿越",
-        "word_count": 55000,
-        "url": "//book.qq.com/book-detail/54098989",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "穿书七零，我靠养崽带全家暴富了",
-        "author": "月满天天",
-        "type": "都市",
-        "word_count": 55000,
-        "url": "//book.qq.com/book-detail/54340624",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "我，颜值女主播，打钱！",
         "author": "藕片大王",
         "type": "明星",
@@ -945,13 +972,13 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "钓系主播勾勾手，大佬争相当榜一",
-        "author": "茶娇",
-        "type": "明星",
+        "title": "穿成娇软表妹，男主们争我夺红眼",
+        "author": "竹下松萝",
+        "type": "宅斗",
         "word_count": 54000,
-        "url": "//book.qq.com/book-detail/52929618",
+        "url": "//book.qq.com/book-detail/54218916",
         "is_follow": false,
-        "last_update_date": "2025-04-25 12:09:52"
+        "last_update_date": "2025-04-25 21:51:25"
     },
     {
         "title": "天灾末日：从囤货30亿开始！",
@@ -963,13 +990,13 @@
         "last_update_date": "2025-04-25 13:09:53"
     },
     {
-        "title": "她靠捡垃圾带娃，爆火娱乐圈",
-        "author": "麻薯脆团团",
-        "type": "豪门",
+        "title": "念云起",
+        "author": "我好苦",
+        "type": "纯爱",
         "word_count": 54000,
-        "url": "//book.qq.com/book-detail/54233588",
+        "url": "//book.qq.com/book-detail/54278017",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 19:09:44"
     },
     {
         "title": "兽世撩精，攻略五个疯批兽夫",
@@ -990,47 +1017,38 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "她的护卫",
-        "author": "希行",
-        "type": "架空",
-        "word_count": 51000,
-        "url": "//book.qq.com/book-detail/54135421",
+        "title": "穿成恶毒表姑娘，五个男主沦陷了",
+        "author": "佛系泡芙",
+        "type": "穿越",
+        "word_count": 53000,
+        "url": "//book.qq.com/book-detail/54356097",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "穿成娇软表妹，男主们争我夺红眼",
-        "author": "竹下松萝",
-        "type": "宅斗",
-        "word_count": 51000,
-        "url": "//book.qq.com/book-detail/54218916",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 21:55:34"
     },
     {
         "title": "上瘾诱吻！京圈大佬强取豪夺娇娇",
         "author": "舟无言",
         "type": "豪门",
-        "word_count": 51000,
+        "word_count": 53000,
         "url": "//book.qq.com/book-detail/54207490",
         "is_follow": false,
-        "last_update_date": "2025-04-24 15:54:26"
+        "last_update_date": "2025-04-25 21:51:25"
     },
     {
         "title": "恶女又撩又茶，众大佬们跪求我宠",
         "author": "云中观山客",
         "type": "穿越",
-        "word_count": 51000,
+        "word_count": 53000,
         "url": "//book.qq.com/book-detail/54221667",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 21:51:25"
     },
     {
-        "title": "念云起",
-        "author": "我好苦",
-        "type": "纯爱",
+        "title": "她的护卫",
+        "author": "希行",
+        "type": "架空",
         "word_count": 51000,
-        "url": "//book.qq.com/book-detail/54278017",
+        "url": "//book.qq.com/book-detail/54135421",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -1044,6 +1062,24 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
+        "title": "吃瓜上位，我成后宫唯一团宠",
+        "author": "吃个大桃",
+        "type": "宫斗",
+        "word_count": 51000,
+        "url": "//book.qq.com/book-detail/54370931",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
+    },
+    {
+        "title": "流放海岛，我家娘子不是人",
+        "author": "全麦无糖面包",
+        "type": "架空",
+        "word_count": 50000,
+        "url": "//book.qq.com/book-detail/54186066",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
+    },
+    {
         "title": "斗破：重生凤清儿之征服萧炎",
         "author": "如梅如菊傲雪凌霜",
         "type": "同人",
@@ -1051,6 +1087,15 @@
         "url": "//book.qq.com/book-detail/54400448",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
+    },
+    {
+        "title": "快穿：又被疯批男配强娶了",
+        "author": "见朝夕池.",
+        "type": "位面",
+        "word_count": 49000,
+        "url": "//book.qq.com/book-detail/54292263",
+        "is_follow": false,
+        "last_update_date": "2025-04-25 18:02:41"
     },
     {
         "title": "迷雾求生：手握人生模拟器赢麻了",
@@ -1076,15 +1121,6 @@
         "type": "都市",
         "word_count": 49000,
         "url": "//book.qq.com/book-detail/54395676",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "穿成恶毒表姑娘，五个男主沦陷了",
-        "author": "佛系泡芙",
-        "type": "穿越",
-        "word_count": 49000,
-        "url": "//book.qq.com/book-detail/54356097",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
     },
@@ -1161,31 +1197,22 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "吃瓜上位，我成后宫唯一团宠",
-        "author": "吃个大桃",
-        "type": "宫斗",
+        "title": "穿越星际，卡皮巴拉成哨向万人迷",
+        "author": "奶七有糖",
+        "type": "星际",
         "word_count": 47000,
-        "url": "//book.qq.com/book-detail/54370931",
+        "url": "//book.qq.com/book-detail/54304631",
         "is_follow": false,
-        "last_update_date": "2025-04-24 16:46:18"
+        "last_update_date": "2025-04-25 18:02:41"
     },
     {
-        "title": "快穿：又被疯批男配强娶了",
-        "author": "见朝夕池.",
-        "type": "位面",
+        "title": "斗罗：冥河双生子，震世灭穹",
+        "author": "徐穹楼",
+        "type": "玄幻",
         "word_count": 46000,
-        "url": "//book.qq.com/book-detail/54292263",
+        "url": "//book.qq.com/book-detail/54335446",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "流放海岛，我家娘子不是人",
-        "author": "全麦无糖面包",
-        "type": "架空",
-        "word_count": 46000,
-        "url": "//book.qq.com/book-detail/54186066",
-        "is_follow": false,
-        "last_update_date": "2025-04-24 16:46:18"
+        "last_update_date": "2025-04-25 16:28:29"
     },
     {
         "title": "斗罗：武魂离体，我也裂开",
@@ -1197,21 +1224,12 @@
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
-        "title": "穿越星际，卡皮巴拉成哨向万人迷",
-        "author": "奶七有糖",
-        "type": "星际",
-        "word_count": 45000,
-        "url": "//book.qq.com/book-detail/54304631",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
         "title": "渣爹抛妻弃女前，小奶团重生了",
         "author": "冷清木",
         "type": "种田",
         "word_count": 44000,
         "url": "//book.qq.com/book-detail/43164269",
-        "is_follow": false,
+        "is_follow": true,
         "last_update_date": "2025-04-25 11:10:36"
     },
     {
@@ -1222,15 +1240,6 @@
         "url": "//book.qq.com/book-detail/54218555",
         "is_follow": false,
         "last_update_date": "2025-04-25 11:10:36"
-    },
-    {
-        "title": "斗罗：冥河双生子，震世灭穹",
-        "author": "徐穹楼",
-        "type": "玄幻",
-        "word_count": 39000,
-        "url": "//book.qq.com/book-detail/54335446",
-        "is_follow": false,
-        "last_update_date": "2025-04-24 12:49:44"
     },
     {
         "title": "重生团宠：成了顶级权贵的白月光",
@@ -1248,7 +1257,7 @@
         "word_count": 30000,
         "url": "//book.qq.com/book-detail/54426284",
         "is_follow": false,
-        "last_update_date": "2025-04-25 12:09:52"
+        "last_update_date": "2025-04-25 20:51:41"
     },
     {
         "title": "港夜缠欢",
@@ -1257,15 +1266,15 @@
         "word_count": 28000,
         "url": "//book.qq.com/book-detail/54413446",
         "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 20:40:01"
     },
     {
         "title": "暗藏春潮",
         "author": "槿郗",
-        "type": "都市",
+        "type": "现代言情/都市生活",
         "word_count": 13000,
         "url": "//book.qq.com/book-detail/54474620",
-        "is_follow": false,
-        "last_update_date": "2025-04-25 11:10:36"
+        "last_update_date": "2025-04-25 20:40:01",
+        "is_follow": true
     }
 ]

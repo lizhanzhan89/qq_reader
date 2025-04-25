@@ -21,6 +21,10 @@
                     type="button" role="tab" aria-controls="books" aria-selected="true">小说列表</button>
             </li>
             <li class="nav-item" role="presentation">
+                <button class="nav-link" id="new-books-tab" data-bs-toggle="tab" data-bs-target="#new-books" type="button"
+                    role="tab" aria-controls="new-books" aria-selected="false">新书上榜</button>
+            </li>
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="authors-tab" data-bs-toggle="tab" data-bs-target="#authors" type="button"
                     role="tab" aria-controls="authors" aria-selected="false">关注的作者</button>
             </li>
@@ -41,7 +45,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="input-group me-3" style="width: 500px;">
                         <input type="text" id="search-input" class="form-control" placeholder="输入书名、作者或类型">
-                        <button id="search-btn" class="btn btn-primary">搜索</button>
+                        <button id="search-btn" class="btn btn-primary mx-1">搜索</button>
                         <button id="load-data-btn" class="btn btn-primary mx-1">获取最新数据</button>
                     </div>
                     <span id="update-date" class="text-muted">数据更新于：</span>
@@ -55,9 +59,29 @@
                             <th data-column="word_count" data-order="asc" class="sortable">字数</th>
                             <th data-column="last_update_date" data-order="asc" class="sortable">数据更新日期</th>
                             <th data-column="is_follow" data-order="asc" class="sortable">是否关注</th>
+                            <th data-column="is_follow" data-order="asc" class="sortable">新书上榜</th>
                         </tr>
                     </thead>
                     <tbody id="book-list">
+                        <!-- 数据将通过 JavaScript 动态插入 -->
+                    </tbody>
+                </table>
+                <a id="search-origin" target="_blank" href="#">从源网站搜索</a>
+            </div>
+
+            <!-- 新书上榜 Tab -->
+            <div class="tab-pane fade" id="new-books" role="tabpanel" aria-labelledby="new-books-tab">
+                <table id="new-book-table" class="table table-bordered table-hover mt-2">
+                    <thead class="table-light">
+                        <tr>
+                            <th data-column="title" data-order="asc" class="sortable">书名</th>
+                            <th data-column="author" data-order="asc" class="sortable">作者</th>
+                            <th data-column="type" data-order="asc" class="sortable">类型</th>
+                            <th data-column="word_count" data-order="asc" class="sortable">字数</th>
+                            <th data-column="last_update_date" data-order="asc" class="sortable">数据更新日期</th>
+                        </tr>
+                    </thead>
+                    <tbody id="new-book-list">
                         <!-- 数据将通过 JavaScript 动态插入 -->
                     </tbody>
                 </table>
@@ -79,14 +103,21 @@
 
             <!-- 关注的书 Tab -->
             <div class="tab-pane fade" id="followed-books" role="tabpanel" aria-labelledby="followed-books-tab">
+                <div id="add-author-input" class="mt-2">
+                    <input type="text" id="new-book-id" class="form-control form-control-sm"
+                        placeholder="输入书号">
+                    <button id="confirm-add-book" class="mt-2 btn btn-sm btn-primary">添加关注</button>
+                </div>
                 <table id="follow-book-table" class="table table-bordered table-hover mt-2">
                     <thead class="table-light">
                         <tr>
+                            <th style="width: 55px;"></th>
                             <th data-column="title" data-order="asc" class="sortable">书名</th>
                             <th data-column="author" data-order="asc" class="sortable">作者</th>
                             <th data-column="type" data-order="asc" class="sortable">类型</th>
                             <th data-column="word_count" data-order="asc" class="sortable">字数</th>
-                            <th data-column="last_update_date" data-order="asc" class="sortable">数据更新日期</th>
+                            <th data-column="last_update_date" data-order="asc" class="sortable">更新日期</th>
+                            <th data-column="options" data-order="asc" class="sortable">进度</th>
                         </tr>
                     </thead>
                     <tbody id="follow-book-list">

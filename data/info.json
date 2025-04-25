@@ -1,19 +1,24 @@
 {
     "follow_books": [
-        "//book.qq.com/book-detail/53540344",
-        "//book.qq.com/book-detail/54136131",
-        "//book.qq.com/book-detail/53908309",
-        "//book.qq.com/book-detail/54144038",
-        "//book.qq.com/book-detail/54139187",
-        "//book.qq.com/book-detail/54099221",
-        "//book.qq.com/book-detail/54096254",
-        "//book.qq.com/book-detail/54124269"
+        {
+            "url": "//book.qq.com/book-detail/54124269",
+            "status": "wip",
+            "is_important": true
+        },
+        {
+            "url": "//book.qq.com/book-detail/54474620",
+            "status": "new",
+            "is_important": false
+        },
+        {
+            "url": "//book.qq.com/book-detail/50256553",
+            "status": "done",
+            "is_important": false
+        }
     ],
     "follow_authors": [
-        "一支藤萝",
-        "一微三千星",
         "萧语云音",
-        "红油干拌饺子"
+        "冷清木"
     ],
-    "last_fetch_data_date": "2025-04-25 15:09:52"
+    "last_fetch_data_date": "2025-04-25 21:55:34"
 }

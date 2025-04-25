@@ -60,50 +60,142 @@ function loadData(apiEndpoint) {
             // 插入书籍数据
             data.data?.forEach(book => {
                 const row = document.createElement('tr');
-                if (book.is_follow) row.classList.add('star-row'); // 设置行背景颜色
+                if (book.is_follow || data.info?.follow_books?.some(fb => fb.url === book.url)) row.classList.add('star-row'); // 设置行背景颜色
 
-                const subIcon = data.info?.follow_books?.includes(book.url)
-                    ? '<a href="#" class="sub-link followed" data-url="' + book.url + '" data-sub="true">★</a>'
-                    : '<a href="#" class="sub-link unfollowed" data-url="' + book.url + '" data-sub="false">☆</a>';
+                const followIcon = data.info?.follow_books?.some(fb => fb.url === book.url)
+                    ? '<a href="#" class="follow-link followed" data-url="' + book.url + '" data-follow="true">★</a>'
+                    : '<a href="#" class="follow-link unfollowed" data-url="' + book.url + '" data-follow="false">☆</a>';
 
                 row.innerHTML = `
-                            <td>${subIcon} <a href="${book.url}" target="_blank" class="text-decoration-none">${book.title}</a></td>
+                            <td>${followIcon} <a href="${book.url}" target="_blank" class="text-decoration-none">${book.title}</a></td>
                             <td>${book.author}</td>
                             <td>${book.type || '未知'}</td>
                             <td>${book.word_count}</td>
                             <td>${book.last_update_date || '未知'}</td>
-                            <td>${book.is_follow ? '是' : '否'}</td>
+                            <td>${book.is_follow || data.info?.follow_books?.some(fb => fb.url === book.url) ? '是' : '否'}</td>
+                            <td>${book.is_new ? '是' : '否'}</td>
                         `;
                 bookList.appendChild(row);
             });
 
-            const followBookList = document.getElementById('follow-book-list');
-            followBookList.innerHTML = ''; // 清空现有数据
-            data.data?.filter(book => data.info?.follow_books?.includes(book.url)).forEach(book => {
+            // 插入新书上榜数据
+            const newBookList = document.getElementById('new-book-list');
+            newBookList.innerHTML = ''; // 清空现有数据
+            data.data?.filter(book => book.is_new).forEach(book => {
                 const row = document.createElement('tr');
-                const subIcon = data.info?.follow_books?.includes(book.url)
-                    ? '<a href="#" class="sub-link followed" data-url="' + book.url + '" data-sub="true">★</a>'
-                    : '<a href="#" class="sub-link unfollowed" data-url="' + book.url + '" data-sub="false">☆</a>';
+                const followIcon = data.info?.follow_books?.some(fb => fb.url === book.url)
+                    ? '<a href="#" class="follow-link followed" data-url="' + book.url + '" data-follow="true">★</a>'
+                    : '<a href="#" class="follow-link unfollowed" data-url="' + book.url + '" data-follow="false">☆</a>';
+
                 row.innerHTML = `
-                            <td>${subIcon} <a href="${book.url}" class="text-decoration-none">${book.title}</a></td>
+                            <td>${followIcon} <a href="${book.url}" target="_blank" class="text-decoration-none">${book.title}</a></td>
                             <td>${book.author}</td>
                             <td>${book.type || '未知'}</td>
                             <td>${book.word_count}</td>
                             <td>${book.last_update_date || '未知'}</td>
                         `;
+                newBookList.appendChild(row);
+            });
+
+            // 插入关注的书籍数据
+            const followBookList = document.getElementById('follow-book-list');
+            followBookList.innerHTML = ''; // 清空现有数据
+            data.data?.filter(book => data.info?.follow_books?.some(fb => fb.url === book.url)).forEach(book => {
+                const row = document.createElement('tr');
+                const followIcon = data.info?.follow_books?.some(fb => fb.url === book.url)
+                    ? '<a href="#" class="follow-link followed" data-url="' + book.url + '" data-follow="true">★</a>'
+                    : '<a href="#" class="follow-link unfollowed" data-url="' + book.url + '" data-follow="false">☆</a>';
+                const isImportant = data.info?.follow_books?.find(fb => fb.url === book.url)?.is_important || false;
+                // 为重点关注的书籍添加特殊背景色
+                if (isImportant) {
+                    row.classList.add('table-info');
+                }
+                row.innerHTML = `
+                            <td>
+                                <input type="checkbox" class="important-checkbox" data-url="${book.url}" ${isImportant ? 'checked' : ''}>
+                                ${followIcon}
+                            </td>
+                            <td>
+                                <a href="${book.url}" class="text-decoration-none">${book.title}</a>
+                            </td>
+                            <td>${book.author}</td>
+                            <td>${book.type || '未知'}</td>
+                            <td>${book.word_count}</td>
+                            <td>${book.last_update_date || '未知'}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <input type="radio" class="btn-check status-radio" name="status_${book.url}" id="new_${book.url}" value="new" ${data.info?.follow_books?.find(fb => fb.url === book.url)?.status === 'new' ? 'checked' : ''}>
+                                    <label class="btn btn-outline-primary py-0 px-1" for="new_${book.url}">未开始</label>
+                                    
+                                    <input type="radio" class="btn-check status-radio" name="status_${book.url}" id="wip_${book.url}" value="wip" ${data.info?.follow_books?.find(fb => fb.url === book.url)?.status === 'wip' ? 'checked' : ''}>
+                                    <label class="btn btn-outline-primary py-0 px-1 mx-1" for="wip_${book.url}">进行中</label>
+                                    
+                                    <input type="radio" class="btn-check status-radio" name="status_${book.url}" id="done_${book.url}" value="done" ${data.info?.follow_books?.find(fb => fb.url === book.url)?.status === 'done' ? 'checked' : ''}>
+                                    <label class="btn btn-outline-primary py-0 px-1" for="done_${book.url}">已完成</label>
+                                </div>
+                            </td>
+                        `;
                 followBookList.appendChild(row);
+
+                // 为复选框添加事件监听
+                const checkbox = row.querySelector('.important-checkbox');
+                checkbox.addEventListener('change', (event) => {
+                    const url = event.target.getAttribute('data-url');
+                    const isImportant = event.target.checked;
+                    fetch('api/important_book', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ url, is_important: isImportant })
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('操作失败');
+                            }
+                            return response.json();
+                        })
+                        .then(() => {
+                            loadData(apiUrl); // 重新加载数据
+                        })
+                        .catch(error => {
+                            alert(`操作失败: ${error.message}`);
+                            event.target.checked = !isImportant; // 恢复原状态
+                        });
+                });
+
+                // 为单选框添加事件监听
+                const statusRadios = row.querySelectorAll('.status-radio');
+                statusRadios.forEach(radio => {
+                    radio.addEventListener('change', (event) => {
+                        const url = event.target.name.replace('status_', '');
+                        const status = event.target.value;
+                        fetch('api/book_status', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ url, status })
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('操作失败');
+                                }
+                                return response.json();
+                            })
+                            .catch(error => {
+                                alert(`操作失败: ${error.message}`);
+                            });
+                    });
+                });
             });
 
             // 为每个关注链接添加事件监听
-            document.querySelectorAll('.sub-link').forEach(link => {
+            document.querySelectorAll('.follow-link').forEach(link => {
                 link.addEventListener('click', event => {
                     event.preventDefault();
                     const url = link.getAttribute('data-url');
-                    const isSub = link.getAttribute('data-sub') === 'true';
-                    fetch('api/sub', {
+                    const isFollow = link.getAttribute('data-follow') === 'true';
+                    fetch('api/follow_book', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ url, is_sub: !isSub })
+                        body: JSON.stringify({ url, is_follow: !isFollow })
                     })
                         .then(response => {
                             return response.json();
@@ -157,7 +249,6 @@ if (apiUrl) {
 }
 
 // 添加作者功能
-const addAuthorInput = document.getElementById('add-author-input');
 const confirmAddAuthor = document.getElementById('confirm-add-author');
 const newAuthorName = document.getElementById('new-author-name');
 
@@ -175,6 +266,33 @@ confirmAddAuthor.addEventListener('click', () => {
                 }
                 loadData(apiUrl); // 重新加载数据
                 newAuthorName.value = ''; // 清空输入框
+                alert('添加成功');
+            })
+            .catch(error => {
+                alert(`添加失败: ${error.message}`);
+            });
+    }
+});
+
+// 添加关注书功能
+const confirmAddBook = document.getElementById('confirm-add-book');
+const newBookId = document.getElementById('new-book-id');
+
+confirmAddBook.addEventListener('click', () => {
+    const bookId = newBookId.value.trim();
+    if (bookId) {
+        fetch('api/book', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ book_id: bookId })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('添加失败');
+                }
+                loadData(apiUrl); // 重新加载数据
+                newBookId.value = ''; // 清空输入框
+                alert('添加成功');
             })
             .catch(error => {
                 alert(`添加失败: ${error.message}`);
@@ -202,10 +320,19 @@ getLatestData.addEventListener('click', () => {
 // 搜索功能
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
+const sourceSearchLink = document.getElementById('search-origin');
 
 function performSearch() {
     const query = searchInput.value.toLowerCase();
     const rows = document.querySelectorAll('#book-list tr');
+
+    // 根据搜索内容显示或隐藏源网站搜索链接
+    if (query.trim() === '') {
+        sourceSearchLink.style.display = 'none';
+    } else {
+        sourceSearchLink.style.display = 'inline';
+        sourceSearchLink.href = 'https://book.qq.com/so/' + query;
+    }
 
     rows.forEach(row => {
         const cells = row.querySelectorAll('td');
@@ -227,3 +354,5 @@ function performSearch() {
 // 绑定事件
 searchBtn.addEventListener('click', performSearch);
 searchInput.addEventListener('input', performSearch); // 输入时实时搜索
+// 添加输入事件监听器，实时更新链接显示状态
+searchInput.addEventListener('input', performSearch);

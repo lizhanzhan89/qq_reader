@@ -83,24 +83,92 @@ def add_authro():
 
     return jsonify("{'msg': 'success'}"), 200
 
+@app.route('/api/book', methods=['POST'])
+def add_book():
+    book_id = request.get_json().get('book_id')
+    will_add_book_url = f'//book.qq.com/book-detail/{book_id}'
 
-@app.route('/api/sub', methods=['POST'])
-def sub_book():
-    book_url = request.get_json().get('url')
-    is_sub = request.get_json().get('is_sub')
+    info = qq_reader_crawler.load_file_data(INFO_FILE)
+    follow_books = info.get('follow_books', [])
+    if will_add_book_url not in [fb['url'] for fb in follow_books]:
+        follow_books.append({
+            'url': will_add_book_url,
+            'status': 'new'
+        })
+    info['follow_books'] = follow_books
 
-    if book_url is not None and is_sub is not None:
-        info = qq_reader_crawler.load_file_data(INFO_FILE)
-        follow_books = set(info.get('follow_books', []))
-        if is_sub:
-            follow_books.add(book_url)
-        else:
-            follow_books.discard(book_url)
-        info['follow_books'] = list(follow_books)
-        qq_reader_crawler.save_data(info, INFO_FILE)
-        qq_reader_crawler.update_follows()
+    books = qq_reader_crawler.load_file_data(JSON_FILE_PATH)
+    books = [book for book in books if book['url'] != will_add_book_url]
+    will_add_book = qq_reader_crawler.crawl_detail_page(will_add_book_url)
+    will_add_book['is_follow'] = True
+    books.append(will_add_book)
+
+    qq_reader_crawler.save_data(info, INFO_FILE)
+    qq_reader_crawler.save_data(books, JSON_FILE_PATH)
 
     return jsonify("{'msg': 'success'}"), 200
+
+@app.route('/api/follow_book', methods=['POST'])
+def follow_book():
+    book_url = request.get_json().get('url')
+    is_follow = request.get_json().get('is_follow')
+
+    if book_url is not None and is_follow is not None:
+        info = qq_reader_crawler.load_file_data(INFO_FILE)
+        follow_books = info.get('follow_books', [])
+        follow_book_urls = {book['url'] for book in follow_books}
+        if is_follow and book_url not in follow_book_urls:
+            follow_books.append({
+                'url': book_url,
+                'status': 'new'
+            })
+        elif not is_follow and book_url in follow_book_urls:
+            follow_books = [book for book in follow_books if book['url'] != book_url]
+        info['follow_books'] = follow_books
+        qq_reader_crawler.save_data(info, INFO_FILE)
+
+    return jsonify("{'msg': 'success'}"), 200
+
+@app.route('/api/important_book', methods=['POST'])
+def important_book():
+    book_url = request.get_json().get('url')
+    is_important = request.get_json().get('is_important')
+
+    if book_url is not None and is_important is not None:
+        info = qq_reader_crawler.load_file_data(INFO_FILE)
+        follow_books = info.get('follow_books', [])
+        
+        # 更新书籍的重点关注状态
+        for book in follow_books:
+            if book['url'] == book_url:
+                book['is_important'] = is_important
+                break
+                
+        info['follow_books'] = follow_books
+        qq_reader_crawler.save_data(info, INFO_FILE)
+
+    return jsonify({'msg': 'success'}), 200
+
+
+@app.route('/api/book_status', methods=['POST'])
+def update_book_status():
+    book_url = request.get_json().get('url')
+    status = request.get_json().get('status')
+
+    if book_url is not None and status is not None:
+        info = qq_reader_crawler.load_file_data(INFO_FILE)
+        follow_books = info.get('follow_books', [])
+        
+        # 更新书籍的状态
+        for book in follow_books:
+            if book['url'] == book_url:
+                book['status'] = status
+                break
+                
+        info['follow_books'] = follow_books
+        qq_reader_crawler.save_data(info, INFO_FILE)
+
+    return jsonify({'msg': 'success'}), 200
 
 
 # 运行 Flask 应用
