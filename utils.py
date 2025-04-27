@@ -36,11 +36,10 @@ def send_wechat_notification(message):
     """发送微信通知"""
     try:
         base_url = "https://wxpusher.zjiecode.com/api/send/message/SPT_xiAfRwl3cByBm0BHxFmVoa9Q2M52"
-        # encoded_message = quote(message)
-        # response = requests.get(f"{base_url}/{encoded_message}")
+        encoded_message = quote(message)
+        response = requests.get(f"{base_url}/{encoded_message}")
         logger.info(f"发送通知: {message}")
-        # return response.status_code == 200
-        return True
+        return response.status_code == 200
     except Exception as e:
         logger.error(f"发送微信通知失败: {e}")
         return False

@@ -32,6 +32,7 @@ def my_scheduled_job():
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(my_scheduled_job, 'interval', hours=1)
+scheduler.start()
 
 
 @app.route('/')
@@ -196,4 +197,3 @@ def update_book_status():
 if __name__ == '__main__':
     logger.info("Flask应用启动")
     app.run(host='0.0.0.0', debug=False, port=5001)
-    scheduler.start()
