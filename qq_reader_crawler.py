@@ -1,10 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import json
-from pathlib import Path
-import datetime
 import logging
-from urllib.parse import quote
 from utils import (
     parse_word_count, 
     get_shanghai_time, 

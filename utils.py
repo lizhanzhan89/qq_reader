@@ -2,6 +2,7 @@ import datetime
 import json
 from pathlib import Path
 import logging
+from urllib.parse import quote
 
 # 获取日志记录器
 logger = logging.getLogger(__name__)
