@@ -4,10 +4,6 @@ function loadData(apiEndpoint) {
     fetch(apiEndpoint)
         .then(response => response.json())
         .then(data => {
-            // 更新书籍列表
-            const bookList = document.getElementById('book-list');
-            bookList.innerHTML = ''; // 清空现有数据
-
             // 更新日期显示
             const updateDateElement = document.getElementById('update-date');
             updateDateElement.textContent = `数据更新于：${data.info?.last_fetch_data_date}`;
@@ -57,7 +53,9 @@ function loadData(apiEndpoint) {
                 });
             });
 
-            // 插入书籍数据
+            // 更新书籍列表
+            const bookList = document.getElementById('book-list');
+            bookList.innerHTML = ''; // 清空现有数据
             data.data?.forEach(book => {
                 const row = document.createElement('tr');
                 if (book.is_follow || data.info?.follow_books?.some(fb => fb.url === book.url)) row.classList.add('star-row'); // 设置行背景颜色
@@ -209,38 +207,11 @@ function loadData(apiEndpoint) {
                 });
             });
 
-            // 排序功能
-            document.querySelectorAll('.sortable').forEach(header => {
-                header.addEventListener('click', () => {
-                    const column = header.getAttribute('data-column');
-                    const order = header.getAttribute('data-order');
-                    const bookList = document.getElementById('book-list');
-                    const rows = Array.from(bookList.querySelectorAll('tr'));
-
-                    rows.sort((a, b) => {
-                        const cellA = a.querySelector(`td:nth-child(${header.cellIndex + 1})`).innerText;
-                        const cellB = b.querySelector(`td:nth-child(${header.cellIndex + 1})`).innerText;
-
-                        if (column === 'word_count') {
-                            return (order === 'asc' ? 1 : -1) * (parseInt(cellA) - parseInt(cellB));
-                        } else if (column === 'is_follow') {
-                            return (order === 'asc' ? 1 : -1) * (cellA === '是' ? 1 : -1);
-                        } else {
-                            return (order === 'asc' ? 1 : -1) * cellA.localeCompare(cellB, 'zh');
-                        }
-                    });
-
-                    rows.forEach(row => bookList.appendChild(row));
-                    header.setAttribute('data-order', order === 'asc' ? 'desc' : 'asc');
-                });
-            });
         })
         .catch(error => {
             const bookList = document.getElementById('book-list');
             bookList.innerHTML = `<tr><td colspan="6" class="text-danger text-center">加载数据失败: ${error.message}</td></tr>`;
         });
-
-
 }
 
 // 初始加载数据
@@ -302,13 +273,22 @@ confirmAddBook.addEventListener('click', () => {
 
 // 获取最新数据
 const getLatestData = document.getElementById('load-data-btn');
+const loadingSpinner = document.getElementById('loading-spinner');
+
 getLatestData.addEventListener('click', () => {
+    // 显示加载动画
+    loadingSpinner.style.display = 'block';
+    getLatestData.disabled = true;
+
     fetch('api/load')
         .then(response => {
             if (!response.ok) {
                 throw new Error('获取失败');
             }
             loadData(apiUrl); // 重新加载数据
+            // 隐藏加载动画并恢复按钮状态
+            loadingSpinner.style.display = 'none';
+            getLatestData.disabled = false;
             alert('获取成功');
         })
         .catch(error => {
@@ -353,6 +333,61 @@ function performSearch() {
 
 // 绑定事件
 searchBtn.addEventListener('click', performSearch);
-searchInput.addEventListener('input', performSearch); // 输入时实时搜索
 // 添加输入事件监听器，实时更新链接显示状态
 searchInput.addEventListener('input', performSearch);
+
+// 添加排序功能初始化函数
+function initSortable(tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    
+    const headers = table.querySelectorAll('.sortable');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const column = header.getAttribute('data-column');
+            const order = header.getAttribute('data-order');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            rows.sort((a, b) => {
+                const cellA = a.querySelector(`td:nth-child(${header.cellIndex + 1})`).innerText;
+                const cellB = b.querySelector(`td:nth-child(${header.cellIndex + 1})`).innerText;
+
+                if (column === 'word_count') {
+                    return (order === 'asc' ? 1 : -1) * (parseInt(cellA) - parseInt(cellB));
+                } else if (column === 'is_follow') {
+                    return (order === 'asc' ? 1 : -1) * (cellA === '是' ? 1 : -1);
+                } else {
+                    return (order === 'asc' ? 1 : -1) * cellA.localeCompare(cellB, 'zh');
+                }
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+            header.setAttribute('data-order', order === 'asc' ? 'desc' : 'asc');
+        });
+    });
+}
+
+// 添加 Tab 切换事件监听
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('button[data-bs-toggle="tab"]');
+    tabs.forEach(tab => {
+        tab.addEventListener('shown.bs.tab', function(event) {
+            // 根据当前激活的 tab 初始化对应表格的排序功能
+            switch(event.target.id) {
+                case 'books-tab':
+                    initSortable('book-table');
+                    break;
+                case 'new-books-tab':
+                    initSortable('new-book-table');
+                    break;
+                case 'followed-books-tab':
+                    initSortable('follow-book-table');
+                    break;
+            }
+        });
+    });
+    
+    // 初始化默认显示的表格排序功能
+    initSortable('book-table');
+});

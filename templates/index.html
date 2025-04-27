@@ -13,6 +13,14 @@
 <body class="bg-light">
     <div class="container my-4">
         <h1 class="text-center mb-4">小说列表</h1>
+        
+        <!-- 添加加载动画 -->
+        <div id="loading-spinner" class="text-center" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">加载中...</span>
+            </div>
+            <p class="mt-2">数据加载中，请稍候...</p>
+        </div>
 
         <!-- Tabs 导航 -->
         <ul class="nav nav-tabs" id="main-tabs" role="tablist">
@@ -117,7 +125,7 @@
                             <th data-column="type" data-order="asc" class="sortable">类型</th>
                             <th data-column="word_count" data-order="asc" class="sortable">字数</th>
                             <th data-column="last_update_date" data-order="asc" class="sortable">更新日期</th>
-                            <th data-column="options" data-order="asc" class="sortable">进度</th>
+                            <th data-column="options">进度</th>
                         </tr>
                     </thead>
                     <tbody id="follow-book-list">

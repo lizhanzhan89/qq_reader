@@ -3,27 +3,30 @@ from bs4 import BeautifulSoup
 import json
 from pathlib import Path
 import datetime
+import logging
+from urllib.parse import quote
+from utils import (
+    parse_word_count, 
+    get_shanghai_time, 
+    load_file_data, 
+    save_data, 
+    send_notification
+)
 
 # 文件路径
 INFO_FILE = 'data/info.json'
 CURRENT_FILE = 'data/current_books.json'
 PREVIOUS_FILE = 'data/previous_books.json'
 
-
-# 解析字数字符串
-def parse_word_count(word_count_str):
-    """将字数字符串转换为整数，例如 '12.3万字' -> 123000"""
-    word_count_str = word_count_str.replace('·', '')
-    if '万字' in word_count_str:
-        return int(float(word_count_str.replace('万字', '')) * 10000)
-    else:
-        return int(word_count_str.replace('字', ''))
+# 获取日志记录器
+logger = logging.getLogger(__name__)
 
 
 # 爬取单页书籍信息
 def crawl_page(follow_books_urls, page):
     """爬取指定页的书籍信息"""
     url = f"https://book.qq.com/book-rank/female-new/cycle-1-{page}"
+    logger.info(f"开始爬取第 {page} 页: {url}")
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -49,11 +52,12 @@ def crawl_page(follow_books_urls, page):
             })
         return books
     except Exception as e:
-        print(f"爬取第 {page} 页失败: {e}")
+        logger.error(f"爬取第 {page} 页失败: {e}")
         return []
 
 
 def crawl_detail_page(url):
+    logger.info(f"开始爬取书籍详情页: {url}")
     headers = {
         'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -84,34 +88,6 @@ def crawl_detail_page(url):
     return book
 
 
-# 加载文件数据
-def load_file_data(filename):
-    if Path(filename).exists():
-        with open(filename, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return {}
-
-
-# 保存数据
-def save_data(json_data, filename):
-    """保存当前书籍数据"""
-    with open(filename, 'w', encoding='utf-8') as f:
-        json.dump(json_data, f, ensure_ascii=False, indent=4)
-
-
-# 发送微信通知
-def send_notification(message):
-    try:
-        # TODO 通过微信发送通知
-        print(message)
-        # 保存到日志文件
-        with open('data/notification_history.log', 'a', encoding='utf-8') as log_file:
-            log_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            log_file.write(f"{log_time} {message}\n")
-    except Exception as e:
-        print(f"发送通知失败: {e}")
-
-
 # 检查新书和重点书籍
 def check_updates(current_books, previous_books, info):
     previous_urls = {book['url'] for book in previous_books}
@@ -130,35 +106,50 @@ def check_updates(current_books, previous_books, info):
         current_word_count = book['word_count']
         book['last_update_date'] = prev_book.get('last_update_date')
         if current_word_count > prev_word_count or book.get('last_update_date') is None:
-            book['last_update_date'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            book['last_update_date'] = get_shanghai_time()
 
         # 检查关注书籍
         follow_book = follow_dict.get(book['url'])
         if follow_book is not None:
-            # 重点关注7万字提醒一次
+            # 重点关注的7万字提醒一次
             if current_word_count >= 70000 and follow_book.get('is_important', False) and follow_book.get('alert_for_7') is None:
                 message = f"重点关注书籍达到 7 万字: {book['title']} - {book['author']} - {current_word_count} 字"
                 send_notification(message)
-            # 已完成的10万字提醒
-            if current_word_count >= 100000 and follow_book['status'] == 'done' and follow_book.get('alert_for_10') is None:
-                message = f"已完成书籍达到 10 万字: {book['title']} - {book['author']} - {current_word_count} 字"
+                follow_book['alert_for_7'] = True
+            # 未开始的5万字提醒一次
+            if current_word_count >= 50000 and follow_book['status'] == 'new' and follow_book.get('alert_for_5') is None:
+                message = f"关注书籍达到 5 万字: {book['title']} - {book['author']} - {current_word_count} 字"
                 send_notification(message)
+                follow_book['alert_for_5'] = True
+            # 正在做的9万字提醒一次
+            if current_word_count >= 90000 and follow_book['status'] == 'wip' and follow_book.get('alert_for_9') is None:
+                message = f"正在做的书籍达到 9 万字: {book['title']} - {book['author']} - {current_word_count} 字"
+                send_notification(message)
+                follow_book['alert_for_9'] = True
+            # 已完成的9万7字提醒一次
+            if current_word_count >= 97000 and follow_book['status'] == 'done' and follow_book.get('alert_for_97') is None:
+                message = f"已完成书籍达到 97000 字: {book['title']} - {book['author']} - {current_word_count} 字"
+                send_notification(message)
+                follow_book['alert_for_97'] = True
 
 
 # 主爬取逻辑
 def main_crawl():
+    logger.info("开始主爬取任务")
     info = load_file_data(INFO_FILE)
-
+    
     follow_books = []
     for fb in info.get('follow_books'):
+        logger.info(f"爬取关注书籍: {fb['url']}")
         book = crawl_detail_page(fb['url'])
         book['is_follow'] = True
         follow_books.append(book)
+    logger.info(f"已爬取关注书籍: {len(follow_books)} 本")
 
     """爬取 1-9 页并处理数据"""
     all_books = []
     follow_book_urls = [book['url'] for book in follow_books]
-    for page in range(1, 9):
+    for page in range(1, 10):
         page_books = crawl_page(follow_book_urls, page)
         all_books.extend(page_books)
 
@@ -177,13 +168,15 @@ def main_crawl():
     save_data(previous_books, PREVIOUS_FILE)
     save_data(sorted_books, CURRENT_FILE)
 
-    info['last_fetch_data_date'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    info['last_fetch_data_date'] = get_shanghai_time()
     save_data(info, INFO_FILE)
 
+    logger.info(f"本次爬取完成，共获取 {len(sorted_books)} 本书籍")
     return sorted_books
 
 
 def update_follows():
+    logger.info("开始更新关注状态")
     current_books = load_file_data(CURRENT_FILE)
     info = load_file_data(INFO_FILE)
     mix_follow_by_author(info, current_books)

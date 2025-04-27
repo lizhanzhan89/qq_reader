@@ -3,6 +3,7 @@ import json
 import qq_reader_crawler
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
+import logging
 
 # 创建 Flask 应用实例
 app = Flask(__name__)
@@ -10,14 +11,27 @@ app = Flask(__name__)
 JSON_FILE_PATH = 'data/current_books.json'
 INFO_FILE = 'data/info.json'
 NOTIFICATION_HISTORY_FILE = 'data/notification_history.log'
+LOG_FILE = 'data/app.log'  # 改名为更通用的名称
+
+# 配置根日志记录器
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # 添加模块名称
+    handlers=[
+        logging.FileHandler(LOG_FILE, encoding='utf-8'),
+        logging.StreamHandler()
+    ]
+)
+
+# 获取当前模块的日志记录器
+logger = logging.getLogger(__name__)
 
 def my_scheduled_job():
     qq_reader_crawler.main()
-    print("定时任务执行:", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    logger.info(f"定时任务执行: {qq_reader_crawler.get_shanghai_time()}")
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(my_scheduled_job, 'interval', hours=1)
-scheduler.start()
 
 
 @app.route('/')
@@ -28,6 +42,7 @@ def index():
 # 重新加载数据
 @app.route('/api/load', methods=['GET'])
 def load_data():
+    logger.info("手动触发数据加载")
     qq_reader_crawler.main()
     return jsonify("{'msg': 'success'}"), 200
 
@@ -59,6 +74,7 @@ def get_data():
 @app.route('/api/author', methods=['DELETE'])
 def delete_authro():
     will_delete_author = request.args.get('author')
+    logger.info(f"删除作者: {will_delete_author}")
 
     info = qq_reader_crawler.load_file_data(INFO_FILE)
     follow_authors = set(info.get('follow_authors', []))
@@ -72,6 +88,7 @@ def delete_authro():
 @app.route('/api/author', methods=['POST'])
 def add_authro():
     will_add_author = request.get_json().get('author')
+    logger.info(f"添加作者: {will_add_author}")
 
     info = qq_reader_crawler.load_file_data(INFO_FILE)
     follow_authors = set(info.get('follow_authors', []))
@@ -87,6 +104,7 @@ def add_authro():
 def add_book():
     book_id = request.get_json().get('book_id')
     will_add_book_url = f'//book.qq.com/book-detail/{book_id}'
+    logger.info(f"添加书籍: {book_id}")
 
     info = qq_reader_crawler.load_file_data(INFO_FILE)
     follow_books = info.get('follow_books', [])
@@ -112,6 +130,7 @@ def add_book():
 def follow_book():
     book_url = request.get_json().get('url')
     is_follow = request.get_json().get('is_follow')
+    logger.info(f"更新书籍关注状态: {book_url}, is_follow={is_follow}")
 
     if book_url is not None and is_follow is not None:
         info = qq_reader_crawler.load_file_data(INFO_FILE)
@@ -133,6 +152,7 @@ def follow_book():
 def important_book():
     book_url = request.get_json().get('url')
     is_important = request.get_json().get('is_important')
+    logger.info(f"更新书籍重要状态: {book_url}, is_important={is_important}")
 
     if book_url is not None and is_important is not None:
         info = qq_reader_crawler.load_file_data(INFO_FILE)
@@ -154,6 +174,7 @@ def important_book():
 def update_book_status():
     book_url = request.get_json().get('url')
     status = request.get_json().get('status')
+    logger.info(f"更新书籍状态: {book_url}, status={status}")
 
     if book_url is not None and status is not None:
         info = qq_reader_crawler.load_file_data(INFO_FILE)
@@ -173,4 +194,6 @@ def update_book_status():
 
 # 运行 Flask 应用
 if __name__ == '__main__':
+    logger.info("Flask应用启动")
     app.run(host='0.0.0.0', debug=False, port=5001)
+    scheduler.start()
