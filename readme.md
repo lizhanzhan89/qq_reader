@@ -4,7 +4,7 @@
 docker run -d \
   --name qq_reader \
   -p 5001:5001 \
-  -v $(pwd):/app \
+  -v /app:/app \
   -w /app/qq_reader \
   python \
   /bin/bash -c "cd /app/qq_reader && pip install flask beautifulsoup4 requests APScheduler html5lib -i https://pypi.tuna.tsinghua.edu.cn/simple && python app.py"
