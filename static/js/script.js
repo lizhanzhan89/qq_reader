@@ -391,3 +391,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化默认显示的表格排序功能
     initSortable('book-table');
 });
+
+// 主题切换功能
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const icon = themeToggleBtn.querySelector('i');
+    const htmlElement = document.documentElement;
+    
+    // 检查本地存储中的主题设置
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        htmlElement.setAttribute('data-bs-theme', savedTheme);
+        updateThemeUI(savedTheme === 'dark');
+    }
+    
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeUI(newTheme === 'dark');
+    });
+    
+    function updateThemeUI(isDark) {
+        icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+        document.body.className = isDark ? 'bg-dark' : 'bg-light';
+        themeToggleBtn.className = `btn ${isDark ? 'btn-outline-light' : 'btn-outline-primary'} rounded-circle p-2`;
+    }
+});
