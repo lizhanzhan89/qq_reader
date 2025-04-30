@@ -1,4 +1,4 @@
-Flask
+flask
 beautifulsoup4
 requests
 APScheduler
