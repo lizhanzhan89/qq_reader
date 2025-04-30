@@ -1,8 +1,0 @@
-2025-04-27 18:36:41,413 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2025-04-27 18:36:41,414 - apscheduler.scheduler - INFO - Added job "my_scheduled_job" to job store "default"
-2025-04-27 18:36:41,414 - apscheduler.scheduler - INFO - Scheduler started
-2025-04-27 18:36:41,415 - __main__ - INFO - Flask应用启动
-2025-04-27 18:36:41,430 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5001
- * Running on http://172.20.10.3:5001

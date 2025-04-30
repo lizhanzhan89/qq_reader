@@ -13,6 +13,7 @@ from utils import (
 INFO_FILE = 'data/info.json'
 CURRENT_FILE = 'data/current_books.json'
 PREVIOUS_FILE = 'data/previous_books.json'
+NEW_BOOK_HISTORY_FILE = 'data/new_book_history.json'
 
 # 获取日志记录器
 logger = logging.getLogger(__name__)
@@ -89,12 +90,13 @@ def check_updates(current_books, previous_books, info):
     previous_urls = {book['url'] for book in previous_books}
     previous_dict = {book['url']: book for book in previous_books}
     follow_dict = {book['url']: book for book in info['follow_books']}
+    
+    new_books = []
     for book in current_books:
         # 新上榜书籍
         if book['url'] not in previous_urls:
-            message = f"新书上榜: {book['title']} - {book['author']} - {book['word_count']} 字"
-            send_notification(message)
-            book['is_new'] = True
+            book_record = book.copy()
+            new_books.append(book_record)
 
         # set update date
         prev_book = previous_dict.get(book['url'], {})
@@ -109,24 +111,48 @@ def check_updates(current_books, previous_books, info):
         if follow_book is not None:
             # 重点关注的7万字提醒一次
             if current_word_count >= 70000 and follow_book.get('is_important', False) and follow_book.get('alert_for_7') is None:
-                message = f"重点关注书籍达到 7 万字: {book['title']} - {book['author']} - {current_word_count} 字"
+                message = f"重点关注书籍达到 7 万字: 《{book['title']}》 - {book['author']} - {current_word_count} 字"
                 send_notification(message)
                 follow_book['alert_for_7'] = True
             # 未开始的5万字提醒一次
             if current_word_count >= 50000 and follow_book['status'] == 'new' and follow_book.get('alert_for_5') is None:
-                message = f"关注书籍达到 5 万字: {book['title']} - {book['author']} - {current_word_count} 字"
+                message = f"关注书籍达到 5 万字: 《{book['title']}》 - {book['author']} - {current_word_count} 字"
                 send_notification(message)
                 follow_book['alert_for_5'] = True
             # 正在做的9万字提醒一次
             if current_word_count >= 90000 and follow_book['status'] == 'wip' and follow_book.get('alert_for_9') is None:
-                message = f"正在做的书籍达到 9 万字: {book['title']} - {book['author']} - {current_word_count} 字"
+                message = f"正在做的书籍达到 9 万字: 《{book['title']}》 - {book['author']} - {current_word_count} 字"
                 send_notification(message)
                 follow_book['alert_for_9'] = True
             # 已完成的9万7字提醒一次
             if current_word_count >= 97000 and follow_book['status'] == 'done' and follow_book.get('alert_for_97') is None:
-                message = f"已完成书籍达到 97000 字: {book['title']} - {book['author']} - {current_word_count} 字"
+                message = f"已完成书籍达到 97000 字: 《{book['title']}》 - {book['author']} - {current_word_count} 字"
                 send_notification(message)
                 follow_book['alert_for_97'] = True
+
+    if new_books.__len__() > 0:
+        # 加载历史新书记录
+        new_book_history = load_file_data(NEW_BOOK_HISTORY_FILE)
+        if not isinstance(new_book_history, list):
+            new_book_history = []
+        
+        # 创建URL到记录的映射，用于快速查找
+        existing_books = {book['url']: book for book in new_book_history}
+        
+        for book in new_books:
+            # 如果书已存在，只更新日期
+            if book['url'] in existing_books:
+                existing_books[book['url']]['up_date'] = get_shanghai_time().split()[0]
+            else:
+                # 新书则添加完整记录
+                book['up_date'] = get_shanghai_time().split()[0]
+                new_book_history.append(book)
+                
+        # 保存更新后的历史记录
+        save_data(new_book_history, NEW_BOOK_HISTORY_FILE)
+        # 发送新书通知
+        message = f"新书上榜: {', '.join('《' + book['title'] + '》' for book in new_books)}"
+        send_notification(message)
 
 
 # 主爬取逻辑

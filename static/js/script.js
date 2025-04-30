@@ -59,7 +59,6 @@ function loadData(apiEndpoint) {
             data.data?.forEach(book => {
                 const row = document.createElement('tr');
                 if (book.is_follow || data.info?.follow_books?.some(fb => fb.url === book.url)) row.classList.add('star-row'); // 设置行背景颜色
-
                 const followIcon = data.info?.follow_books?.some(fb => fb.url === book.url)
                     ? '<a href="#" class="follow-link followed" data-url="' + book.url + '" data-follow="true">★</a>'
                     : '<a href="#" class="follow-link unfollowed" data-url="' + book.url + '" data-follow="false">☆</a>';
@@ -71,7 +70,6 @@ function loadData(apiEndpoint) {
                             <td>${book.word_count}</td>
                             <td>${book.last_update_date || '未知'}</td>
                             <td>${book.is_follow || data.info?.follow_books?.some(fb => fb.url === book.url) ? '是' : '否'}</td>
-                            <td>${book.is_new ? '是' : '否'}</td>
                         `;
                 bookList.appendChild(row);
             });
@@ -79,8 +77,9 @@ function loadData(apiEndpoint) {
             // 插入新书上榜数据
             const newBookList = document.getElementById('new-book-list');
             newBookList.innerHTML = ''; // 清空现有数据
-            data.data?.filter(book => book.is_new).forEach(book => {
+            data.new_book_history?.forEach(book => {
                 const row = document.createElement('tr');
+                if (book.is_follow || data.info?.follow_books?.some(fb => fb.url === book.url)) row.classList.add('star-row'); // 设置行背景颜色
                 const followIcon = data.info?.follow_books?.some(fb => fb.url === book.url)
                     ? '<a href="#" class="follow-link followed" data-url="' + book.url + '" data-follow="true">★</a>'
                     : '<a href="#" class="follow-link unfollowed" data-url="' + book.url + '" data-follow="false">☆</a>';
@@ -90,7 +89,7 @@ function loadData(apiEndpoint) {
                             <td>${book.author}</td>
                             <td>${book.type || '未知'}</td>
                             <td>${book.word_count}</td>
-                            <td>${book.last_update_date || '未知'}</td>
+                            <td>${book.up_date || '未知'}</td>
                         `;
                 newBookList.appendChild(row);
             });
@@ -114,7 +113,7 @@ function loadData(apiEndpoint) {
                                 ${followIcon}
                             </td>
                             <td>
-                                <a href="${book.url}" class="text-decoration-none">${book.title}</a>
+                                <a href="${book.url}" target="_blank" class="text-decoration-none">${book.title}</a>
                             </td>
                             <td>${book.author}</td>
                             <td>${book.type || '未知'}</td>

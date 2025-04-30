@@ -1,3 +1,4 @@
+import requests
 import datetime
 import json
 from pathlib import Path
@@ -16,7 +17,7 @@ def parse_word_count(word_count_str):
         return int(word_count_str.replace('字', ''))
 
 def get_shanghai_time():
-    """获取北京时间"""
+    # 使用时区偏移量计算北京时间
     utc_time = datetime.datetime.utcnow()
     shanghai_time = utc_time + datetime.timedelta(hours=8)
     return shanghai_time.strftime("%Y-%m-%d %H:%M:%S")
@@ -36,9 +37,17 @@ def save_data(json_data, filename):
 def send_wechat_notification(message):
     """发送微信通知"""
     try:
-        base_url = "https://wxpusher.zjiecode.com/api/send/message/SPT_xiAfRwl3cByBm0BHxFmVoa9Q2M52"
-        encoded_message = quote(message)
-        response = requests.get(f"{base_url}/{encoded_message}")
+        base_url = "https://wxpusher.zjiecode.com/api/send/message/simple-push"
+        payload = {
+            "content": f"<p>{message}</p>",
+            "summary": message[:16] + " ...",  # 限制摘要长度为20
+            "contentType": 2,  # 使用HTML格式
+            "sptList": [
+                "SPT_xiAfRwl3cByBm0BHxFmVoa9Q2M52", # lyq
+                "SPT_0lHAJTgpn3kpfbs16yUw6yyTVy1c" # lzz
+            ]
+        }
+        response = requests.post(base_url, json=payload)
         logger.info(f"发送通知: {message}")
         return response.status_code == 200
     except Exception as e:
