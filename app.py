@@ -89,6 +89,8 @@ def get_data():
         data = qq_reader_crawler.load_file_data(JSON_FILE_PATH)
         info = qq_reader_crawler.load_file_data(INFO_FILE)
         new_book_history = qq_reader_crawler.load_file_data(NEW_BOOK_HISTORY_FILE)
+        if not isinstance(new_book_history, list):
+            new_book_history = []
         notification_history = []
         with open(NOTIFICATION_HISTORY_FILE, 'r', encoding='utf-8') as file:
             notification_history = [line.strip() for line in file.readlines()]
